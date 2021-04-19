@@ -1,4 +1,4 @@
-module ip-proxy-service
+module github.com/kncxstudio/ip-proxy-service
 
 go 1.15
 
