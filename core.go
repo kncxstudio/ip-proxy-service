@@ -28,7 +28,7 @@ func GetProxyPool() []IpProxy {
 			return pool
 		}
 		log.Println(resp.String())
-		lines := strings.Split(resp.String(), `\n`)
+		lines := strings.Split(resp.String(), "\n")
 
 		regex := regexp.MustCompile(`.*:[0-9]+ [A-Z]+-[A-Z].*`)
 
