@@ -2,6 +2,7 @@ package ip_proxy_service
 
 import (
 	"log"
+	"os"
 	"regexp"
 	"strings"
 
@@ -21,6 +22,10 @@ func GetProxyPool() []IpProxy {
 	if len(pool) < 1 || pool == nil {
 		pool = []IpProxy{}
 		client := resty.New()
+		if "dev" == os.Getenv("RUN_ENV") {
+			client.SetProxy(`http://127.0.0.1:1081`)
+		}
+
 		request := client.R().EnableTrace()
 		resp, err := request.Get("https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list.txt")
 		if err != nil {
