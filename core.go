@@ -1,4 +1,4 @@
-package ip_proxy_service
+package proxysvc
 
 import (
 	"log"
